@@ -1,161 +1,82 @@
-# 宙斯证书生成器 V1
+# 宙斯证书生成器 V1（黑金主题）
 
-一个功能强大的多语言证书生成工具，支持9种语言和5个VIP等级的证书模板。
+一个专注“证书模板 + 头像 + UID”的前端生成器，支持 6 种语言、VIP1-5 模板，画布 2048×1152，黑金风格 UI。
 
 ## 🚀 功能特点
 
-- **多语言支持**: 支持9种语言的证书模板
-- **VIP等级**: 每个语言都有VIP1-VIP5五个等级
-- **实时预览**: 拖拽调整位置和大小
-- **现代化界面**: 响应式设计，支持移动端
-- **一键下载**: 自动生成带模板信息的文件名
+- **语言模板**：英语、法语、罗马尼亚语、亚美尼亚语、阿拉伯语、希腊语（各自 VIP1-VIP5）
+- **高分辨率**：画布 2048×1152，模板等比填充
+- **头像处理**：上传后按圆形区域裁切，object-fit: cover 居中填充，位置/大小默认固定
+- **UID 编辑**：输入即显；可拖拽移动；可按钮调节字号；发光金色字体（#e8d28e）
+- **实时坐标**：左侧面板展示头像/UID 的当前位置与大小（基准坐标）
+- **一键下载**：生成 PNG，自动带国家与 VIP 信息
 
 ## 📁 项目结构
 
 ```
-DCG v2.0/
+Zeus Certificate/
 ├── index.html              # 主页面
-├── assets/                 # 资源文件夹
+├── assets/
 │   ├── css/
-│   │   └── style.css       # 样式文件
+│   │   └── style.css       # 黑金主题样式
 │   ├── js/
-│   │   └── app.js          # 主要JavaScript逻辑
+│   │   └── app.js          # 主逻辑（Canvas 渲染/交互）
 │   └── images/             # 其他图片资源
-├── templates/              # 模板文件夹
-│   ├── english/            # 英语模板
-│   ├── armenian/           # 亚美尼亚语模板
-│   ├── hungarian/          # 匈牙利语模板
-│   ├── spanish/            # 西班牙语模板
-│   ├── ukrainian/          # 乌克兰语模板
-│   ├── french/             # 法语模板
-│   ├── russian/            # 俄语模板
-│   ├── bulgarian/          # 保加利亚语模板
-│   └── romanian/           # 罗马尼亚语模板
-└── README.md               # 说明文档
+├── templates/              # 模板图片（按语言分类）
+│   ├── english/            # 英语
+│   ├── french/             # 法语
+│   ├── romanian/           # 罗马尼亚语
+│   ├── armenian/           # 亚美尼亚语
+│   ├── arabic/             # 阿拉伯语
+│   └── greek/              # 希腊语
+└── README.md
 ```
 
 ## 🎨 模板文件命名规范
 
-### 英语模板 (templates/english/)
-- `English_VIP1.png`
-- `English_VIP2.png`
-- `English_VIP3.png`
-- `English_VIP4.png`
-- `English_VIP5.png`
+所有模板均为 PNG，命名：`<Language>_VIP1..VIP5.png`
 
-### 亚美尼亚语模板 (templates/armenian/)
-- `Armenian_VIP1.png`
-- `Armenian_VIP2.png`
-- `Armenian_VIP3.png`
-- `Armenian_VIP4.png`
-- `Armenian_VIP5.png`
+- 英语（templates/english/）：English_VIP1.png … English_VIP5.png
+- 法语（templates/french/）：French_VIP1.png … French_VIP5.png
+- 罗马尼亚语（templates/romanian/）：Romanian_VIP1.png … Romanian_VIP5.png
+- 亚美尼亚语（templates/armenian/）：Armenian_VIP1.png … Armenian_VIP5.png
+- 阿拉伯语（templates/arabic/）：Arabic_VIP1.png … Arabic_VIP5.png
+- 希腊语（templates/greek/）：Greek_VIP1.png … Greek_VIP5.png
 
-### 匈牙利语模板 (templates/hungarian/)
-- `Hungarian_VIP1.png`
-- `Hungarian_VIP2.png`
-- `Hungarian_VIP3.png`
-- `Hungarian_VIP4.png`
-- `Hungarian_VIP5.png`
-
-### 西班牙语模板 (templates/spanish/)
-- `Spanish_VIP1.png`
-- `Spanish_VIP2.png`
-- `Spanish_VIP3.png`
-- `Spanish_VIP4.png`
-- `Spanish_VIP5.png`
-
-### 乌克兰语模板 (templates/ukrainian/)
-- `Ukrainian_VIP1.png`
-- `Ukrainian_VIP2.png`
-- `Ukrainian_VIP3.png`
-- `Ukrainian_VIP4.png`
-- `Ukrainian_VIP5.png`
-
-### 法语模板 (templates/french/)
-- `French_VIP1.png`
-- `French_VIP2.png`
-- `French_VIP3.png`
-- `French_VIP4.png`
-- `French_VIP5.png`
-
-### 俄语模板 (templates/russian/)
-- `Russian_VIP1.png`
-- `Russian_VIP2.png`
-- `Russian_VIP3.png`
-- `Russian_VIP4.png`
-- `Russian_VIP5.png`
-
-### 保加利亚语模板 (templates/bulgarian/)
-- `Bulgarian_VIP1.png`
-- `Bulgarian_VIP2.png`
-- `Bulgarian_VIP3.png`
-- `Bulgarian_VIP4.png`
-- `Bulgarian_VIP5.png`
-
-### 罗马尼亚语模板 (templates/romanian/)
-- `Romanian_VIP1.png`
-- `Romanian_VIP2.png`
-- `Romanian_VIP3.png`
-- `Romanian_VIP4.png`
-- `Romanian_VIP5.png`
+> 放好对应图片后，页面会自动按选择的语言与 VIP 加载模板。
 
 ## 📋 使用说明
 
-### 1. 准备模板文件
-- 将你的证书模板图片按照上述命名规范放入对应的文件夹
-- 图片格式建议使用PNG格式，尺寸为1280x800像素
-- 如果某个模板文件不存在，系统会显示默认模板
+1) 打开 `index.html`（或通过本地服务器打开）
+2) 左侧选择语言与 VIP 等级
+3) 上传头像（支持直接粘贴）
+4) 输入 UID（立即显示、可拖拽移动、按钮可调字号）
+5) 点击“下载证书”保存 PNG
 
-### 2. 打开应用
-- 直接在浏览器中打开 `index.html` 文件
-- 或者使用本地服务器运行（推荐）
+默认坐标（基准）
+- 头像：`(74, 168, 142)`（固定位置与大小，圆形裁切、cover 填充）
+- UID：`(294, 304, 36)`（可拖拽移动，字号可调）
 
-### 3. 生成证书
-1. **选择模板**: 点击左侧面板选择语言和VIP等级
-2. **上传头像**: 点击"上传头像"按钮选择头像图片
-3. **输入信息**: 填写姓名和UID
-4. **调整位置**: 拖拽头像、姓名、UID到合适位置
-5. **调整大小**: 使用放大/缩小按钮调整字体和头像大小
-6. **下载证书**: 点击"下载证书"按钮保存图片
+## 🛠️ 技术要点
 
-## 🛠️ 技术特点
+- 纯前端：HTML/CSS/JavaScript，无需后端
+- Canvas 渲染：模板背景 + 头像（圆形 cover）+ UID（金色发光）
+- 高分辨率：画布 2048×1152
+- 黑金主题：全局 UI 使用 #e8d28e 金色与深色背景
 
-- **纯前端实现**: 无需服务器，直接在浏览器中运行
-- **Canvas绘图**: 使用HTML5 Canvas进行图像处理
-- **响应式设计**: 支持桌面和移动设备
-- **模块化代码**: 使用ES6类组织代码结构
-- **错误处理**: 自动处理缺失的模板文件
+## 🔧 常见问题
 
-## 🎯 自定义配置
+- 模板不显示：检查 `templates/<language>/` 下是否存在对应 `VIP*.png`
+- UID 不显示：确认已输入内容；浏览器控制台是否有错误；刷新重试
+- 拖拽不准确：请在缩放 100% 下调试；本项目已基于实际 canvas 像素做坐标换算
 
-### 调整默认位置和大小
-在 `assets/js/app.js` 文件中修改以下参数：
+## 🚢 部署（GitHub Pages）
 
-```javascript
-// 位置和大小参数
-this.avatarX = 77;        // 头像X坐标
-this.avatarY = 188;       // 头像Y坐标
-this.avatarSize = 240;    // 头像大小
-this.nameX = 405;         // 姓名X坐标
-this.nameY = 199;         // 姓名Y坐标
-this.nameSize = 72;       // 姓名字体大小
-this.uidX = 140;          // UID X坐标
-this.uidY = 481;          // UID Y坐标
-this.uidSize = 40;        // UID字体大小
-```
-
-### 添加新语言
-1. 在 `templates` 对象中添加新的语言配置
-2. 创建对应的文件夹和模板文件
-3. 在HTML中添加新的国家选择区域
-
-## 📞 支持
-
-如有问题或建议，请检查：
-1. 模板文件是否按照命名规范放置
-2. 浏览器控制台是否有错误信息
-3. 图片文件是否损坏
+1) GitHub 仓库 → Settings → Pages
+2) Source 选择 `Deploy from a branch`
+3) Branch 选择 `main`，Folder 选 `/root`
+4) 保存后等待生效，访问自动生成的页面链接
 
 ## 📄 许可证
 
-本项目仅供学习和个人使用。
+本项目仅供学习与个人使用。
