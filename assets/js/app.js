@@ -34,6 +34,13 @@ class CertificateGenerator {
         4: "templates/english/English_VIP4.png",
         5: "templates/english/English_VIP5.png"
       },
+      german: {
+        1: "templates/german/German_VIP1.png",
+        2: "templates/german/German_VIP2.png",
+        3: "templates/german/German_VIP3.png",
+        4: "templates/german/German_VIP4.png",
+        5: "templates/german/German_VIP5.png"
+      },
       armenian: {
         1: "templates/armenian/Armenian_VIP1.png",
         2: "templates/armenian/Armenian_VIP2.png",
