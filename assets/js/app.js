@@ -20,6 +20,13 @@ class CertificateGenerator {
         4: "templates/french/French_VIP4.png",
         5: "templates/french/French_VIP5.png"
       },
+      spanish: {
+        1: "templates/spanish/Spanish_VIP1.png",
+        2: "templates/spanish/Spanish_VIP2.png",
+        3: "templates/spanish/Spanish_VIP3.png",
+        4: "templates/spanish/Spanish_VIP4.png",
+        5: "templates/spanish/Spanish_VIP5.png"
+      },
       romanian: {
         1: "templates/romanian/Romanian_VIP1.png",
         2: "templates/romanian/Romanian_VIP2.png",
@@ -47,6 +54,13 @@ class CertificateGenerator {
         3: "templates/armenian/Armenian_VIP3.png",
         4: "templates/armenian/Armenian_VIP4.png",
         5: "templates/armenian/Armenian_VIP5.png"
+      },
+      russian: {
+        1: "templates/russian/Russian_VIP1.png",
+        2: "templates/russian/Russian_VIP2.png",
+        3: "templates/russian/Russian_VIP3.png",
+        4: "templates/russian/Russian_VIP4.png",
+        5: "templates/russian/Russian_VIP5.png"
       },
       arabic: {
         1: "templates/arabic/Arabic_VIP1.png",
